@@ -6,7 +6,7 @@ export default function HomePage() {
           Welcome to the Site
         </h1>
         <p className="mt-4 text-lg text-gray-400">
-          This is the beginning of something great.
+          This is the beginning of something great. E 
         </p>
       </div>
     </main>
