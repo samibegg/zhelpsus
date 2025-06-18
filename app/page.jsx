@@ -15,15 +15,15 @@ const HeroSection = () => {
       }}
     >
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
 
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center max-w-4xl p-8 mx-auto text-center">
         <h1 className="text-4xl font-bold tracking-tight text-cyan-300 sm:text-5xl md:text-6xl lg:text-7xl capitalize">
-          Chief Kindness Officer
+          Z Helps Us
         </h1>
         <p className="mt-6 text-lg text-gray-200 sm:text-xl max-w-2xl">
-          A story of sports, science, and helping superheroes.
+          sprinkling kindness in the community
         </p>
         <div className="mt-12">
           {/* Button to smoothly scroll to the about section */}
@@ -53,9 +53,10 @@ const HeroSection = () => {
 // ==========================================================================
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-gray-900 sm:py-24">
+    <section id="about" className="py-20 bg-gray-200 sm:py-24">
       <div className="max-w-4xl p-8 mx-auto">
-        <div className="space-y-6 text-lg leading-relaxed md:text-xl text-gray-300">
+        <div className="space-y-6 text-lg leading-relaxed md:text-xl text-gray-900">
+          <h2>Chief Kindess Officer</h2>
           <p>
             Hi. My name is Zohaib. Some of my friends like to call me Z. I am 10 years old. I am in 5th grade at The Newton School in Virginia!
           </p>
@@ -85,6 +86,21 @@ const AboutSection = () => {
 };
 
 
+const ExecTeamSection = () => {
+  return (
+    <section id="about" className="py-20 bg-gray-300 sm:py-24">
+      <div className="max-w-4xl p-8 mx-auto">
+        <div className="space-y-6 text-lg leading-relaxed md:text-xl text-gray-900">
+          <h2>Executive Team</h2>
+          <p>
+            Names
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ==========================================================================
 // Main App Component
 // This is the root component that brings all the sections together.
@@ -96,6 +112,7 @@ export default function App() {
       <main>
         <HeroSection />
         <AboutSection />
+        <ExecTeamSection />
         {/* You can add future sections here, like the "Need PPE" section */}
         {/* <section id="need-ppe">...</section> */}
       </main>
