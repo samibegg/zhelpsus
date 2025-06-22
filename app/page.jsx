@@ -43,7 +43,7 @@ const galaData = [
   {
     year: '2022',
     image: '/images/Inova-2022.png',
-    text: 'My 3rd gala was awesome'
+    text: 'My third gala was even better than the previous two. INOVA was able to raise more than 4 MILLION dollars. This helped strenghten and expeand acees to mental health programs.'
   }
 ];
 
@@ -221,13 +221,20 @@ const timelineEvents = [
   { date: '7/1/2020', title: 'Continuing', description: 'I continue to collect PPE from hotels and provide it to those in need. If you need PPE, please click here for a PPE kit.' },
 ];
 
+const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' };
+  return new Date(dateString).toLocaleDateString('en-US', options);
+};
+
 const TimelineItem = ({ date, title, description, link }) => {
   return (
     <div className="relative pl-8 sm:pl-32 py-4 group">
       <div className="absolute left-0 w-4 h-4 mt-2 bg-white border-4 border-cyan-500 rounded-full z-10"></div>
       <div className="absolute left-2 top-0 h-full w-0.5 bg-cyan-300"></div>
       <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
-        <time className="sm:absolute left-0 translate-y-1 text-lg font-semibold uppercase text-cyan-600">{date}</time>
+        <time className="sm:absolute left-0 translate-y-1 text-lg font-semibold text-cyan-600">
+          {formatDate(date)}
+        </time>
         <div className="mt-4 sm:mt-0 sm:ml-8">
           <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
           <p className="mt-2 text-lg leading-relaxed text-gray-700">
@@ -273,7 +280,7 @@ const PressSection = () => {
         <section id="press" className="relative py-20 bg-gray-300 sm:py-24">
             <div className="max-w-7xl px-8 mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">In The News</h2>
+                    <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">Press</h2>
                     <p className="mt-4 text-xl text-gray-700">A collection of articles and news stories about the project.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
