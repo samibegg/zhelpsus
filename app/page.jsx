@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tweet } from 'react-tweet';
+import Image from 'next/image'; 
 
 const pressArticles = [
     { title: '2022 Points of Light Inspiration Honor Roll', date: '5/20/2022', source: 'Points of Light', url: 'https://www.pointsoflight.org/inspiration-honor-roll/2022-2/?honoree-anchor=zohaib-begg' },
@@ -28,10 +29,78 @@ const tweetIds = [
     "1247602799455752194"
 ];
 
-// ==========================================================================
-// Reusable Scroll Arrow Component
-// We create this once and can reuse it in every section.
-// ==========================================================================
+const galaData = [
+  {
+    year: '2020',
+    image: '/images/Inova-2020.png',
+    text: 'Being part of my first MILLION dollars fundraiser was AMAZING! The money I raised went towards: 1. Purchasing Compassion Carts which are filled with healthy snacks because many staff dealing with COVID 19 cannot leave sanitized areas and take PPE off for several hours. Compassion Carts allow essential staff the ability to grab a quick snack during their long long day. 2. Providing mental health apps for free, such as calm and headspace, so Frontline Workers can take some time to decompress and relax after physically and emotionally stressful days.'
+  },
+  {
+    year: '2021',
+    image: '/images/Inova-2021.png',
+    text: 'Being a part of my second GALA and being a part of 2 MILLION dollars fundraiser was unbelievable! Unfortunately the pandemic is still going, and affecting children everywhere. So this year will be going towards Pediatric Care, to support the smallest but bravest people in the hospital.'
+  },
+  {
+    year: '2022',
+    image: '/images/Inova-2022.png',
+    text: 'My 3rd gala was awesome'
+  }
+];
+
+const donorLogos = [
+  '800_5f6ab267bc2c1.jpg',
+  '800_61607a7e78190.png',
+  '800_filter_nobg_6289851884805.png',
+  '800_5f6ab29e7b46c.png',
+  '800_618f540185f1b.png',
+  '800_filter_nobg_628985e812b82.png',
+  '800_5f6ab2cbaa54e.jpg',
+  '800_618f54866baef.png',
+  '800_filter_nobg_628986348ec79.png',
+  '800_5f8666446e6af.png',
+  '800_618f54e41d91c.png',
+  '800_filter_nobg_6289867c0927c.png',
+  '800_5f890336d3600.png',
+  '800_618f554072827.png',
+  '800_filter_nobg_628986b830422.png',
+  '800_5f98f20bcbc1c.png',
+  '800_6190a2ffceec5.jpg',
+  '800_filter_nobg_62898702d7401.png',
+  '800_604e36950ef01.png',
+  '800_6190a38253602.png',
+  '800_filter_nobg_635602b9e4acd.jpg',
+  '800_604e36afd55ad.jpg',
+  '800_6190a548866ba.png',
+  '800_filter_nobg_635603c3898f5.png',
+  '800_604e36da6f4cf.png',
+  '800_6190a5aee5782.png',
+  '800_filter_nobg_635604e2c91e1.png',
+  '800_604e36ef8f6a5.png',
+  '800_6190a61629021.png',
+  '800_filter_nobg_63560507100f0.jpg',
+  '800_604e36f90c1d6.jpg',
+  '800_6190a665d8b11.png',
+  '800_filter_nobg_6356052c4123c.png',
+  '800_604e373d4e38c.jpg',
+  '800_61e77a9073008.png',
+  '800_filter_nobg_6356054c34e29.png',
+  '800_604e37908c721.png',
+  '800_635603ea3ca3d.jpg',
+  '800_filter_nobg_6356058b8e006.png',
+  '800_60541fb2bf698.png',
+  '800_635604ad4a488.jpg',
+  '800_filter_nobg_635605aaada8d.jpg',
+  '800_60541febeff9e.jpg',
+  '800_63560570afbf3.jpg',
+  '800_filter_nobg_635605c4212e9.jpg',
+  '800_60542017aa264.png',
+  '800_635605e8ee890.jpg',
+  '800_filter_nobg_63560606a8b8a.png',
+  '800_6054209a3a743.png',
+  '800_filter_nobg_628984d02c9ad.png',
+  '800_filter_nobg_65274ec83ca87.png'
+];
+
 const ScrollArrow = ({ href, direction = 'down', color = 'text-cyan-300' }) => {
   const path = direction === 'down' ? 'M19 9l-7 7-7-7' : 'M5 15l7-7 7 7';
   const label = direction === 'down' ? 'Scroll down' : 'Scroll to top';
@@ -55,10 +124,6 @@ const ScrollArrow = ({ href, direction = 'down', color = 'text-cyan-300' }) => {
   );
 };
 
-
-// ==========================================================================
-// Hero Section Component
-// ==========================================================================
 const HeroSection = () => {
   return (
     <section
@@ -90,9 +155,6 @@ const HeroSection = () => {
   );
 };
 
-// ==========================================================================
-// About Section Component
-// ==========================================================================
 const AboutSection = () => {
   return (
     <section id="about" className="relative py-20 bg-gray-200 sm:py-24">
@@ -130,9 +192,6 @@ const AboutSection = () => {
   );
 };
 
-// ==========================================================================
-// Executive Team Section Component
-// ==========================================================================
 const ExecTeamSection = () => {
   return (
     <section id="team" className="relative py-20 bg-gray-300 sm:py-24">
@@ -151,10 +210,6 @@ const ExecTeamSection = () => {
   );
 };
 
-
-// ==========================================================================
-// My Project Section
-// ==========================================================================
 const timelineEvents = [
   { date: '3/12/2020', title: 'I Kept Hearing About The Problem', description: "There's many doctors in my family and I kept hearing about the shortage of personal protective equipment from them and also on the news." },
   { date: '3/16/2020', title: 'Finding A Solution', description: 'I wanted to make masks, and started watching YouTube videos on how to make them, but realized I did not know how to sew nor did I have the necessary equipment. Then I started thinking about what else I could do.' },
@@ -194,6 +249,25 @@ const TimelineItem = ({ date, title, description, link }) => {
   );
 };
 
+const MyProjectSection = () => {
+  return (
+    <section id="project" className="relative py-20 bg-gray-400 sm:py-24">
+      <div className="max-w-4xl px-4 sm:px-8 mx-auto">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">My PPE Project</h2>
+          <p className="mt-4 text-xl text-gray-800">A timeline of how I helped my community.</p>
+        </div>
+        <div className="relative">
+          {timelineEvents.map((event, index) => (
+            <TimelineItem key={index} {...event} />
+          ))}
+        </div>
+      </div>
+      <ScrollArrow href="#home" direction="up" color="text-white" />
+    </section>
+  );
+};
+
 const PressSection = () => {
     return (
         <section id="press" className="relative py-20 bg-gray-300 sm:py-24">
@@ -227,10 +301,6 @@ const PressSection = () => {
     );
 };
 
-
-// ==========================================================================
-// NEW Tweets Section Component
-// ==========================================================================
 const TweetsSection = () => {
     return (
         <section id="tweets" className="relative py-20 bg-gray-800 sm:py-24">
@@ -253,29 +323,70 @@ const TweetsSection = () => {
     );
 };
 
-const MyProjectSection = () => {
+const InovaGalasSection = () => {
   return (
-    <section id="project" className="relative py-20 bg-gray-400 sm:py-24">
-      <div className="max-w-4xl px-4 sm:px-8 mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">My PPE Project</h2>
-          <p className="mt-4 text-xl text-gray-800">A timeline of how I helped my community.</p>
+    <section id="galas" className="relative py-20 bg-gray-200 sm:py-24">
+      <div className="max-w-7xl px-8 mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">INOVA Galas</h2>
+          <p className="mt-4 text-xl text-gray-700">Supporting frontline workers and pediatric care through fundraising.</p>
         </div>
-        <div className="relative">
-          {timelineEvents.map((event, index) => (
-            <TimelineItem key={index} {...event} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {galaData.map((gala) => (
+            <div key={gala.year} className="flex flex-col items-center text-center">
+              <div className="w-full h-80 relative mb-6">
+                <Image
+                  src={gala.image}
+                  alt={`INOVA Gala ${gala.year}`}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
+              <h3 className="text-3xl font-bold text-cyan-600">{gala.year}</h3>
+              <p className="mt-4 text-lg text-gray-800 leading-relaxed">
+                {gala.text}
+              </p>
+            </div>
           ))}
         </div>
       </div>
-      <ScrollArrow href="#home" direction="up" color="text-white" />
+      {/* This arrow points back to the top of the page */}
+      <ScrollArrow href="#home" direction="up" color="text-cyan-600" />
     </section>
   );
 };
 
+const DonorsSection = () => {
+  return (
+    <section id="donors" className="relative py-20 bg-gray-300 sm:py-24">
+      <div className="max-w-7xl px-8 mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">Our Donors</h2>
+          <p className="mt-4 text-xl text-gray-700">A heartfelt thank you to all the organizations that have contributed.</p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {donorLogos.map((logo, index) => (
+            <div key={index} className="flex items-center justify-center bg-white p-4 rounded-lg shadow-md aspect-square">
+              <div className="relative w-full h-full">
+                <Image
+                  src={`/images/donorlogos/${logo}`}
+                  alt={`Donor logo ${index + 1}`}
+                  layout="fill"
+                  objectFit="contain"
+                  title={logo.split('.')[0]} // Shows the filename on hover
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* This arrow points back to the top of the page */}
+      <ScrollArrow href="#home" direction="up" color="text-cyan-600" />
+    </section>
+  );
+};
 
-// ==========================================================================
-// Main App Component
-// ==========================================================================
 export default function App() {
   return (
     <div className="bg-gray-900 scroll-smooth">
@@ -286,6 +397,8 @@ export default function App() {
         <MyProjectSection />
         <PressSection />
         <TweetsSection />
+        <InovaGalasSection />
+        <DonorsSection />
       </main>
     </div>
   );
